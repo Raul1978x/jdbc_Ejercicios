@@ -12,8 +12,8 @@ public final class UsuarioDAO extends DAO {
             if (usuario == null) {
                 throw new Exception("Debe indicar usuario");
             }
-            String sql = "insert into Usuario (correoElectronico, clave)"
-                    + "values ( '" + usuario.getCorreoElectronico() + "' , '" + usuario.getClave() + " );";
+            String sql = "INSERT INTO usuario (correoElectronico, clave)"
+                    + "VALUES ( '" + usuario.getCorreoElectronico() + "' , '" + usuario.getClave() + " );";
             insertarModificarEliminar(sql);
         } catch (Exception e) {
             throw e;
@@ -25,8 +25,8 @@ public final class UsuarioDAO extends DAO {
             if (usuario == null) {
                 throw new Exception("Debe indicar el usuario que desea modificar");
             }
-            String sql = "UPDATE Usuario SET "
-                    + "clave = '" + usuario.getClave() + "WHERE correoElectronico = '"+ usuario.getCorreoElectronico() + " );";
+            String sql = "UPDATE usuario SET "
+                    + "clave = '" + usuario.getClave() + "WHERE correoElectronico = '"+ usuario.getCorreoElectronico() + ";";
             insertarModificarEliminar(sql);
         } catch (Exception e) {
             throw e;
@@ -38,7 +38,7 @@ public final class UsuarioDAO extends DAO {
             if (CorreoElectronico == null) {
                 throw new Exception("Debe indicar el usuario que desea modificar");
             }
-            String sql = "DELETE FROM Usuario WHERE correoElectronico = '"+ CorreoElectronico + " );";
+            String sql = "DELETE FROM usuario WHERE correoElectronico = '"+ CorreoElectronico + ";";
             insertarModificarEliminar(sql);
         } catch (Exception e) {
             throw e;
@@ -48,7 +48,7 @@ public final class UsuarioDAO extends DAO {
     public Usuario buscarUsuarioPorCorreoElectronico(String CorreoElectronico) throws Exception{
         try {
             
-            String sql = "SELECT * FROM Usuario "
+            String sql = "SELECT * FROM usuario;"
                     + "WHERE CorreoElectronico = '"+CorreoElectronico +"'";
             consultarBase(sql);
             
@@ -71,7 +71,7 @@ public final class UsuarioDAO extends DAO {
     
     public Collection<Usuario> listarUsuarios() throws Exception{
         try {
-            String sql = "SELECT CorreoElectronico, clave FROM Usuario";
+            String sql = "SELECT CorreoElectronico, clave FROM usuario";
             
             consultarBase(sql);
             
